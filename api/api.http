@@ -1,0 +1,13 @@
+// @name test
+GET http://localhost:3333/api
+
+###
+
+// @name createUser
+POST http://localhost:3333/api/user
+Content-Type: application/json
+
+{
+  "email": "test",
+  "password": "123"
+}
