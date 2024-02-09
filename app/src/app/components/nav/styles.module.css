@@ -1,0 +1,7 @@
+.navButton {
+  @apply flex bg-white text-gray-400 rounded-[14px] text-sm p-3 items-center space-x-[5px];
+}
+
+.navButton.active {
+  @apply bg-[#D43A72] text-white;
+}
