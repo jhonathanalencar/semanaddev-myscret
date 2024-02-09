@@ -22,4 +22,11 @@ export class AnswerDAO implements DAO<AnswerModel> {
     if (!data) return null;
     return data;
   }
+
+  async list(questionId: string): Promise<AnswerModel[]> {
+    const answers = await this.connection<AnswerModel>(this.tableName)
+      .where({ questionId })
+      .select("*");
+    return answers;
+  }
 }

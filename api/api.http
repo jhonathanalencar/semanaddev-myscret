@@ -3,11 +3,43 @@ GET http://localhost:3333/api
 
 ###
 
+// @name createAnswer
+POST http://localhost:3333/api/question/6e9602eb-049c-4c04-aaf2-b7e8997af59a/answer
+Content-Type: application/json
+
+{
+  "userId": "d19ef175-5fee-48b6-892b-3ae48261e31d",
+  "answer": "resposta"
+}
+
+###
+
+// @name ListQuestionAnswers
+GET http://localhost:3333/api/question/6e9602eb-049c-4c04-aaf2-b7e8997af59a/answer
+
+###
+
+// @name createQuestion
+POST http://localhost:3333/api/question
+Content-Type: application/json
+
+{
+  "userId": "d19ef175-5fee-48b6-892b-3ae48261e31d",
+  "question": "pergunta"
+}
+
+###
+
 // @name createUser
 POST http://localhost:3333/api/user
 Content-Type: application/json
 
 {
-  "email": "test",
-  "password": "123"
+  "email": "alice@email.com",
+  "password": "1234"
 }
+
+###
+
+// @name getUserQuestions
+GET http://localhost:3333/api/user/d19ef175-5fee-48b6-892b-3ae48261e31d/questions

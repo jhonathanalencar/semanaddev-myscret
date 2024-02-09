@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import "express-async-errors";
 
 import { HttpServer } from "./HttpServer";
-import { UserControllerHttp } from "./controller/UserControllerHttp";
+import { RouterFactory } from "./RouterFactory";
 
 export class ExpressAdapter implements HttpServer {
   private readonly app: express.Application;
@@ -14,12 +14,8 @@ export class ExpressAdapter implements HttpServer {
     this.app.use(cors());
     this.app.use(bodyParser.json());
 
-    const userController = new UserControllerHttp();
-    this.app.use("/api/user", userController.create);
-
-    this.app.use("/api", (req, res) => {
-      res.json({ message: "Mikasa" });
-    });
+    const routerFactory = new RouterFactory();
+    this.app.use("/api", routerFactory.register());
   }
 
   listen(port: number): void {
